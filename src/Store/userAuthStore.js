@@ -8,10 +8,11 @@ class UserAuthStore {
   constructor() {
     makeAutoObservable(this);
   }
-  signUp = async (userData) => {
+  signUp = async (userData, history) => {
     try {
       const res = await instance.post("/signup", userData);
       this.setUser(res.data.token);
+      history.push("/");
     } catch (error) {}
   };
 

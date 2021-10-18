@@ -30,7 +30,7 @@ function SignInSignUpForm() {
     
       userStatus === false
         ? userAuthStore.signIn(signedIn, history)
-        : userAuthStore.signUp(signedUp);
+        : userAuthStore.signUp(signedUp, history);
     
 
   };
@@ -86,7 +86,7 @@ function SignInSignUpForm() {
           <button type="submit">Submit</button>
         </form>
       )}
-      <button onClick={() => userAuthStore.logout()}>log out</button>
+      
     </div>
   );
 }

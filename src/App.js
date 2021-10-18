@@ -9,11 +9,14 @@ import SignInSignUpForm from "./Components/SignInSignUpForm";
 function App() {
   return (
     <div className="App">
-      <Nav />
+      
 
       <Switch>
         <Route path="/jam3yaList/:jam3yaSlug">
           <Jam3yaDetail />
+        </Route>
+        <Route path="/SignInSignUpForm">
+          <SignInSignUpForm />
         </Route>
         <Route path="/jam3yaList">
           <Jam3yaList />
@@ -21,9 +24,7 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/SignInSignUpForm">
-          <SignInSignUpForm />
-        </Route>
+        
       </Switch>
     </div>
   );
