@@ -8,6 +8,7 @@ function Home() {
     <div> 
       {userAuthStore.user === null ? <SignInSignUpForm/> : 
       <>
+      
       <Nav/> 
       <Jam3yaList/>
       </>

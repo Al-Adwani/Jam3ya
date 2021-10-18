@@ -6,6 +6,8 @@ import Jam3yaDetail from "./Components/Jam3yaDetail";
 import Nav from "./Components/Nav";
 import Jam3yaItem from "./Components/Jam3yaItem";
 import SignInSignUpForm from "./Components/SignInSignUpForm";
+import { observer } from "mobx-react-lite";
+
 function App() {
   return (
     <div className="App">
@@ -30,4 +32,4 @@ function App() {
   );
 }
 
-export default App;
+export default observer(App);
