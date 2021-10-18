@@ -7,11 +7,17 @@ class Jam3yaStore {
   constructor() {
     makeAutoObservable(this);
   }
+
   fetchJam3ya = async () => {
     try {
       const res = await instance.get("/jam3ya");
       this.jam3yat = res.data;
-     
+    } catch (error) {}
+  };
+  createJam3ya = async (newJam3ya, user) => {
+    try {
+      const res = await instance.post("/jam3ya", user, newJam3ya);
+      this.jam3yat.push(res.data);
     } catch (error) {}
   };
 }
