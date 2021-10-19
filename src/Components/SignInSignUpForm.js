@@ -36,57 +36,63 @@ function SignInSignUpForm() {
   };
 
   return (
-    <div>
-      <button
+    <div className="SignInDiv" id ="SignIn"  >
+      <h1 className = "welcomeHeader">Welcome to Jam3ya</h1>
+      <h4 className = "welcomeHeader">Sign In with your UserName and Password</h4>
+      <div className = "btnSign">
+      <button className="btn btn-inverse btn-primary"
         onClick={() => {
           setUserStatus(false);
         }}
       >
         Sign In
       </button>
-      <button
+      <button className="btn btn-inverse btn-primary"
         onClick={() => {
           setUserStatus(true);
         }}
       >
-        Sign Up
+        Create account
       </button>
-
+      </div>
       {userStatus === false ? (
-        <form onSubmit={handleSubmit}>
-          <input
+        <form className="row g-3 needs-validation" onSubmit={handleSubmit}>
+          <input className="form-control"
             onChange={handleSignIn}
             name="username"
             placeholder="Enter UserName"
           />
-          <input
+          <input className="form-control"
             onChange={handleSignIn}
             name="password"
             placeholder="Password"
           />
-          <button type="submit">Submit</button>
+          <button className="btn btn-inverse btn-primary"  type="submit">Submit</button>
         </form>
       ) : (
-        <form onSubmit={handleSubmit}>
-          <input
+        <form className="row g-3 needs-validation" onSubmit={handleSubmit}>
+          
+          <input  className="form-control"
             onChange={handleSignUp}
             name="username"
             placeholder="Enter UserName"
           />
-          <input
+          <input className="form-control"
             onChange={handleSignUp}
             name="email"
             placeholder="E-Mail"
           />
-          <input
+          <input className="form-control"
             onChange={handleSignUp}
             name="password"
             placeholder="Password"
           />
-          <button type="submit">Submit</button>
+          <button  type="submit" className="btn btn-inverse btn-primary">Submit</button>
         </form>
       )}
-      
+      <style>
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+</style>
     </div>
   );
 }
