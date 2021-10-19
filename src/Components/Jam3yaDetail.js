@@ -6,24 +6,42 @@ import { observer } from "mobx-react-lite";
 const Jam3yaDetail = () => {
   const { jam3yaSlug } = useParams();
   if (jam3yaStore.isLoading) return <p>Loading</p>;
-  
+
   const jam3ya = jam3yaStore.jam3yat.find(
     (jam3ya) => jam3ya.slug === jam3yaSlug
   );
-  const enrolls = jam3ya.users.map((enroll) => <p>{enroll.username}</p>)
-  const handleSubmit = () => {
-    
-    jam3yaStore.joinJam3ya(jam3ya._id);
+  const enrolls = jam3ya.users.map((enroll) => <p>{enroll.username}</p>);
+
+  const handleJoin = () => {
+    if (jam3ya.limit >= jam3ya.users.length) {
+      // needs a compare for the dates
+      jam3yaStore.joinJam3ya(jam3ya._id);
+    } else {
+      alert("Nooooooooooooo");
+    }
+  };
+  const handleLeave = () => {
+    jam3yaStore.leaveJam3ya(jam3ya._id);
+  };
+  const handleDelete = () => {
+    jam3yaStore.deleteJam3ya(jam3ya._id);
   };
   return (
     <div>
       <img src={jam3ya.image} />
       <p className="title">{jam3ya.title}</p>
       <p>{jam3ya.startDate}</p>
-      <p >{enrolls}</p>
+      <p>{enrolls}</p>
+      <p>{jam3ya.amount}</p>
+      <p>{jam3ya.startDate}</p>
+      <p>{jam3ya.author.username}</p>
 
+      <p>{jam3ya.endDate}</p>
 
-      <button onClick={handleSubmit}>Join</button>
+      <button onClick={handleJoin}>Join</button>
+      <button onClick={handleLeave}>Leave</button>
+      <button onClick={handleDelete}>Delete</button>
+
     </div>
   );
 };

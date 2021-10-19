@@ -32,6 +32,25 @@ class Jam3yaStore {
       joiners.users.push(userAuthStore.user);
     } catch (error) {}
   };
+  leaveJam3ya = async (id) => {
+    try {
+      const res = await instance.post(
+        `/jam3ya/leave/${id}`,
+        userAuthStore.user
+      );
+      console.log(res.data);
+
+      this.jam3yat = this.jam3yat.filter((leaver) => leaver.id !== id);
+    } catch (error) {}
+  };
+  deleteJam3ya = async (id) => {
+    try {
+      const res = await instance.delete(`/jam3ya/${id}`, userAuthStore.user);
+      console.log(res.data);
+
+      this.jam3yat = this.jam3yat.filter((leaver) => leaver.id !== id);
+    } catch (error) {}
+  };
 }
 const jam3yaStore = new Jam3yaStore();
 jam3yaStore.fetchJam3ya();
