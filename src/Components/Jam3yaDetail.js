@@ -1,11 +1,22 @@
 import React from "react";
-import { Redirect, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import jam3yaStore from "../Store/jam3yaStore";
+import { observer } from "mobx-react-lite";
 
-function Jam3yaDetail() {
-  //       const jam3yatSlug = useParams().jam3yatSlug;
-  //   const jam3ya = jam3yaStore.find((jam3ya) => jam3ya.slug === jam3yatSlug);
-  //   if (!product) return <Redirect to="/" />;
-  return <div></div>;
-}
+const Jam3yaDetail = () => {
+  const { jam3yaSlug } = useParams();
+  if (jam3yaStore.isLoading) return <p>Loading</p>;
 
-export default Jam3yaDetail;
+  const jam3ya = jam3yaStore.jam3yat.find(
+    (jam3ya) => jam3ya.slug === jam3yaSlug
+  );
+
+  return (
+    <div>
+      <img src={jam3ya.image} />
+      <p className="title">{jam3ya.title}</p>
+    </div>
+  );
+};
+
+export default observer(Jam3yaDetail);

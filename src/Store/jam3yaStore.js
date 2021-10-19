@@ -4,6 +4,7 @@ import instance from "./instance";
 
 class Jam3yaStore {
   jam3yat = [];
+  isLoading = true;
   constructor() {
     makeAutoObservable(this);
   }
@@ -12,6 +13,7 @@ class Jam3yaStore {
     try {
       const res = await instance.get("/jam3ya");
       this.jam3yat = res.data;
+      this.isLoading = false;
     } catch (error) {}
   };
   createJam3ya = async (newJam3ya) => {

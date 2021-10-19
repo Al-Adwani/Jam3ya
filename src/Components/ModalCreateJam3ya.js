@@ -31,35 +31,37 @@ function ModalCreateJam3ya() {
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        Create Jam3ya Form{" "}
+        Create Jam3ya Form
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <div>
             <form onSubmit={handleSubmit}>
+              <br />
               title:
-              <br />
               <input type="text" name="title" onChange={handleChange} />
+              <br />
               image:
-              <br />
               <input name="image" onChange={handleChange} />
+              <br />
               amount:
-              <br />
               <input name="amount" onChange={handleChange} />
+              <br />
               limit:
-              <br />
               <input name="limit" onChange={handleChange} />
-              startDate:
               <br />
+              startDate:
               <DatePicker
+                selected={createJam3ya.startDate}
                 onChange={(date) =>
                   setCreateJam3ya({ ...createJam3ya, startDate: date })
                 }
               />
-              endDate:
               <br />
+              endDate:
               <DatePicker
+                selected={createJam3ya.endDate}
                 onChange={(date) =>
                   setCreateJam3ya({ ...createJam3ya, endDate: date })
                 }
