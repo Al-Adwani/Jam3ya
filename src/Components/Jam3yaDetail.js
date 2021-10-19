@@ -1,10 +1,12 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import jam3yaStore from "../Store/jam3yaStore";
 import { observer } from "mobx-react-lite";
+import ModalUpdateJam3ya from "./ModalUpdateJam3ya";
 
 const Jam3yaDetail = () => {
   const { jam3yaSlug } = useParams();
+  const history = useHistory();
   if (jam3yaStore.isLoading) return <p>Loading</p>;
 
   const jam3ya = jam3yaStore.jam3yat.find(
@@ -24,7 +26,7 @@ const Jam3yaDetail = () => {
     jam3yaStore.leaveJam3ya(jam3ya._id);
   };
   const handleDelete = () => {
-    jam3yaStore.deleteJam3ya(jam3ya._id);
+    jam3yaStore.deleteJam3ya(jam3ya._id, history);
   };
   return (
     <div>
@@ -41,7 +43,7 @@ const Jam3yaDetail = () => {
       <button onClick={handleJoin}>Join</button>
       <button onClick={handleLeave}>Leave</button>
       <button onClick={handleDelete}>Delete</button>
-
+      <ModalUpdateJam3ya jam3ya={jam3ya} />
     </div>
   );
 };

@@ -47,4 +47,5 @@ class UserAuthStore {
   };
 }
 const userAuthStore = new UserAuthStore();
+userAuthStore.checkForToken();
 export default userAuthStore;

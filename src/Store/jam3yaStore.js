@@ -26,29 +26,36 @@ class Jam3yaStore {
   };
   joinJam3ya = async (id) => {
     try {
-      const res = await instance.post(`/jam3ya/join/${id}`, userAuthStore.user);
-      const joiners = this.jam3yat.find((joiner) => joiner.id === id);
+      const res = await instance.post(`/jam3ya/join/${id}`);
+      const joiners = this.jam3yat.find((joiner) => joiner._id === id);
       console.log(res.data);
       joiners.users.push(userAuthStore.user);
     } catch (error) {}
   };
   leaveJam3ya = async (id) => {
     try {
-      const res = await instance.post(
-        `/jam3ya/leave/${id}`,
-        userAuthStore.user
-      );
+      const res = await instance.post(`/jam3ya/leave/${id}`);
       console.log(res.data);
-
-      this.jam3yat = this.jam3yat.filter((leaver) => leaver.id !== id);
+      const joiners = this.jam3yat.find((joiner) => joiner._id === id);
+      joiners.users = joiners.users.filter(
+        (leaver) => leaver._id !== userAuthStore.user._id
+      );
     } catch (error) {}
   };
-  deleteJam3ya = async (id) => {
+  deleteJam3ya = async (id, history) => {
     try {
-      const res = await instance.delete(`/jam3ya/${id}`, userAuthStore.user);
+      const res = await instance.delete(`/jam3ya/${id}`);
       console.log(res.data);
-
-      this.jam3yat = this.jam3yat.filter((leaver) => leaver.id !== id);
+      history.push("/");
+      this.jam3yat = this.jam3yat.filter((leaver) => leaver._id !== id);
+    } catch (error) {}
+  };
+  updateJam3ya = async (updated, jam3yaId) => {
+    try {
+      const res = await instance.put(`/jam3ya/${jam3yaId}`, updated);
+      this.jam3yat = this.jam3yat.map((jam3ya) =>
+        jam3ya._id === jam3yaId ? res.data : jam3ya
+      );
     } catch (error) {}
   };
 }
