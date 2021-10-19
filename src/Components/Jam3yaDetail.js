@@ -19,7 +19,7 @@ const Jam3yaDetail = () => {
       jam3ya.limit >= jam3ya.users.length &&
       new Date(jam3ya.startDate) > new Date()
     ) {
-      // needs a compare for the dates
+      
       jam3yaStore.joinJam3ya(jam3ya._id);
     } else {
       alert("Nooooooooooooo");
