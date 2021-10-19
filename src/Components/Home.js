@@ -12,9 +12,9 @@ function Home() {
         <SignInSignUpForm />
       ) : (
         <>
-          <ModalCreateJam3ya />
+          
           <Nav />
-          {/* <CreateJam3yaForm/> dont delete it works*/}
+          <ModalCreateJam3ya />
           <Jam3yaList />
         </>
       )}

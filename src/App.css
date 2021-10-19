@@ -61,3 +61,18 @@
   margin: 20px;
   gap: 50px;
 }
+.logOut {
+  display: flex;
+  margin-left: 80vw;
+  justify-items: right;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  padding: 50px;
+  font-family: "Satisfy", cursive;
+}
+.homeName {
+  position: absolute;
+  
+  left: 75px;
+}

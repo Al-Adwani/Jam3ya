@@ -4,11 +4,18 @@ import userAuthStore from "../Store/userAuthStore";
 import { observer } from "mobx-react-lite";
 function Nav() {
   return (
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <div>
-      <Link to="/">Home</Link>
-      <h3>{userAuthStore.user.username}</h3>
-      <button onClick={() => userAuthStore.logout()}>log out</button>
+      
+      <div >
+      
+      <h3 className = "logOut"> <Link className ="homeName" to="/">Home</Link>Welcome {userAuthStore.user.username} <button  className="btn btn-inverse btn-primary" onClick={() => userAuthStore.logout()}>log out</button></h3>
+      
+      
+      </div>
+      
     </div>
+    </nav>
   );
 }
 
