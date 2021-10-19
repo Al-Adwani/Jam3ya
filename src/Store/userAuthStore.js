@@ -16,7 +16,7 @@ class UserAuthStore {
     } catch (error) {}
   };
 
-  signIn = async (userData,history) => {
+  signIn = async (userData, history) => {
     try {
       const res = await instance.post("/signin", userData);
       this.setUser(res.data.token);

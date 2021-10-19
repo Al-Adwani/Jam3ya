@@ -14,9 +14,10 @@ class Jam3yaStore {
       this.jam3yat = res.data;
     } catch (error) {}
   };
-  createJam3ya = async (newJam3ya, user) => {
+  createJam3ya = async (newJam3ya) => {
     try {
-      const res = await instance.post("/jam3ya", user, newJam3ya);
+      const res = await instance.post("/jam3ya", newJam3ya);
+      console.log(newJam3ya);
       this.jam3yat.push(res.data);
     } catch (error) {}
   };
