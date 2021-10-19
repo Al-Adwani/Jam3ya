@@ -1,6 +1,7 @@
 import { makeAutoObservable } from "mobx";
 
 import instance from "./instance";
+import userAuthStore from "./userAuthStore";
 
 class Jam3yaStore {
   jam3yat = [];
@@ -21,6 +22,14 @@ class Jam3yaStore {
       const res = await instance.post("/jam3ya", newJam3ya);
       console.log(newJam3ya);
       this.jam3yat.push(res.data);
+    } catch (error) {}
+  };
+  joinJam3ya = async (id) => {
+    try {
+      const res = await instance.post(`/jam3ya/join/${id}`, userAuthStore.user);
+      const joiners = this.jam3yat.find((joiner) => joiner.id === id);
+      console.log(res.data);
+      joiners.users.push(userAuthStore.user);
     } catch (error) {}
   };
 }
