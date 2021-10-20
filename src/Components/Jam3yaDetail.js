@@ -13,7 +13,7 @@ const Jam3yaDetail = () => {
   const jam3ya = jam3yaStore.jam3yat.find(
     (jam3ya) => jam3ya.slug === jam3yaSlug
   );
-  const enrolls = jam3ya.users.map((enroll) => <p>{enroll.username}</p>);
+  const enrolls = jam3ya.users.map((enroll) => <p className = "en">{enroll.username}, </p>);
 
   const handleJoin = () => {
     if (
@@ -51,16 +51,18 @@ const Jam3yaDetail = () => {
             End Date: <Moment format="YYYY/MM/DD">{jam3ya.endDate}</Moment>
           </p>
 
-          <button onClick={handleJoin}>Join</button>
-          <button onClick={handleLeave}>Leave</button>
-          <button onClick={handleDelete}>Delete</button>
+          <button onClick={handleJoin} className="btn btn-light m-2">Join</button>
+          <button onClick={handleLeave} className="btn btn-light m-2">Leave</button>
+          <button onClick={handleDelete} className="btn btn-light m-2">Delete</button>
           <ModalUpdateJam3ya jam3ya={jam3ya} />
         </div>
       </div>
 
       <div className="enroll">
-        <h3>List of enrollment</h3>
-        <h2> {enrolls}</h2>
+        <h3>List of enrollment:</h3>
+        
+         {enrolls}
+         
       </div>
     </div>
   );

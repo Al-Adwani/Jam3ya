@@ -14,7 +14,7 @@ function Jam3yaItem({ jam3ya }) {
           <p className="card-text">Amount: {jam3ya.amount}</p>
 
           <Link to={`/jam3yaList/${jam3ya.slug}`}>
-            <button>Go to Details</button>
+            <button className="btn btn-primary" >Go to Details</button>
           </Link>
         
       </div>
