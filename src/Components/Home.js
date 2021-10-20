@@ -5,18 +5,17 @@ import SignInSignUpForm from "./SignInSignUpForm";
 import Nav from "./Nav";
 import ModalCreateJam3ya from "./ModalCreateJam3ya";
 import { observer } from "mobx-react";
+import Jam3yaItem from "./Jam3yaItem";
 function Home() {
   return (
     <div>
       {userAuthStore.user === null ? (
         <SignInSignUpForm />
       ) : (
-        <>
-          
-          <Nav />
+        <div className="HomeStyle">
           <ModalCreateJam3ya />
           <Jam3yaList />
-        </>
+        </div>
       )}
     </div>
   );

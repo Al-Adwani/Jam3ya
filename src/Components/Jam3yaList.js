@@ -41,13 +41,13 @@ function Jam3yaList() {
     })
 
     .map((jam3ya) => {
-      return <Jam3yaItem jam3ya={jam3ya} key={jam3ya.id} />;
+      return <Jam3yaItem jam3ya={jam3ya} key={jam3ya._id} />;
     });
   console.log(jam3yaList);
   return (
     <div>
       <SearchBar setQuery={setQuery} />
-      <InputGroup className="mb-3">
+      <InputGroup className="mb-3" style={{ justifyContent: "end" }}>
         <FormLabel>Date</FormLabel>
         <InputGroup.Checkbox
           checked={check}
@@ -55,16 +55,19 @@ function Jam3yaList() {
           aria-label="Checkbox for following text input"
         />
       </InputGroup>
-      <label for="customRange1" class="form-label">
-        Range of payment
-      </label>
-      <input
-        type="range"
-        class="form-range"
-        id="customRange1"
-        onChange={handleRangeOfPayment}
-      />
-      {jam3yaList}
+      <div className="col-md-2">
+        <label for="customRange1" class="form-label">
+          Range of payment
+        </label>
+        <input
+          type="range"
+          class="form-range"
+          id="customRange1"
+          onChange={handleRangeOfPayment}
+        />
+        {rangeOfPayment}
+      </div>
+      <div className="row">{jam3yaList}</div>
     </div>
   );
 }

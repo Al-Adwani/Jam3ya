@@ -10,6 +10,7 @@ import SignInSignUpForm from "./Components/SignInSignUpForm";
 function App() {
   return (
     <div className="App">
+      <Nav/>
       <Switch>
         <Route path="/jam3yaList/:jam3yaSlug">
           <Jam3yaDetail />

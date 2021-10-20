@@ -73,6 +73,43 @@
 }
 .homeName {
   position: absolute;
-  
+  text-decoration: none;
+  color: #000;
+
   left: 75px;
+}
+.HomeStyle {
+  background-image: url("https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=654&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.createJam {
+  font-family: "Satisfy", cursive;
+  background-image: url("https://ak.picdn.net/shutterstock/videos/17946946/thumb/1.jpg");
+  font-size: 30px;
+}
+.cmj {
+  color: crimson;
+  font-size: 50px;
+}
+.navBar {
+  background-image: url("https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=654&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.jam3yaDetail {
+  display: flex;
+  background-image: url("https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=654&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+}
+.enroll {
+  margin-top: 10%;
+  display: block;
+  background-color: white;
+  width: 150px;
+  height: 550px;
+  font-family: "Satisfy", cursive;
+  
 }

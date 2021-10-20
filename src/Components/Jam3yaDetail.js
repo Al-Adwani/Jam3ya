@@ -3,6 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import jam3yaStore from "../Store/jam3yaStore";
 import { observer } from "mobx-react-lite";
 import ModalUpdateJam3ya from "./ModalUpdateJam3ya";
+import Moment from "react-moment";
 
 const Jam3yaDetail = () => {
   const { jam3yaSlug } = useParams();
@@ -21,7 +22,7 @@ const Jam3yaDetail = () => {
     ) {
       jam3yaStore.joinJam3ya(jam3ya._id);
     } else {
-      alert("Nooooooooooooo");
+      alert("This Jam3ya is full");
     }
   };
   const handleLeave = () => {
@@ -31,21 +32,36 @@ const Jam3yaDetail = () => {
     jam3yaStore.deleteJam3ya(jam3ya._id, history);
   };
   return (
-    <div>
-      <img src={jam3ya.image} />
-      <p className="title">{jam3ya.title}</p>
-      <p>{jam3ya.startDate}</p>
-      <p>{enrolls}</p>
-      <p>{jam3ya.amount}</p>
-      <p>{jam3ya.startDate}</p>
-      <p>{jam3ya.author.username}</p>
+    <div className="jam3yaDetail">
+      <div
+        className="card col-md-3 card border-primary m-5 "
+        style={{ width: "16rem;" }}
+      >
+        <img src={jam3ya.image} className="card-img-top" alt="NO IMAGE!" />
+        <div className="card-body">
+          <h5 className="card-title">Jam3ya Name:{jam3ya.title}</h5>
+          <p>Created By: {jam3ya.author.username}</p>
+          <p className="card-text">Amount: {jam3ya.amount}</p>
+          <p className="card-text">Limit: {jam3ya.limit}</p>
+          <p className="card-text">Amount: {jam3ya.amount}</p>
+          <p className="card-text">
+            Start Date: <Moment format="YYYY/MM/DD">{jam3ya.startDate}</Moment>
+          </p>
+          <p className="card-text">
+            End Date: <Moment format="YYYY/MM/DD">{jam3ya.endDate}</Moment>
+          </p>
 
-      <p>{jam3ya.endDate}</p>
+          <button onClick={handleJoin}>Join</button>
+          <button onClick={handleLeave}>Leave</button>
+          <button onClick={handleDelete}>Delete</button>
+          <ModalUpdateJam3ya jam3ya={jam3ya} />
+        </div>
+      </div>
 
-      <button onClick={handleJoin}>Join</button>
-      <button onClick={handleLeave}>Leave</button>
-      <button onClick={handleDelete}>Delete</button>
-      <ModalUpdateJam3ya jam3ya={jam3ya} />
+      <div className="enroll">
+        <h3>List of enrollment</h3>
+        <h2> {enrolls}</h2>
+      </div>
     </div>
   );
 };

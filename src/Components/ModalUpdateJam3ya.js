@@ -35,12 +35,13 @@ function ModalUpdateJam3ya({ jam3ya }) {
       </Button>
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton />
+        <Modal.Header />
 
-        <form onSubmit={handleSubmit}>
+        <form className="createJam" style={{ width: "25rem;" }} onSubmit={handleSubmit}>
+        <h3 className="cmj">Update the Jam3ya</h3>
           <br />
           title:
-          <input
+          <input className="form-control me-2"
             value={updateJam3ya.title}
             type="text"
             name="title"
@@ -48,28 +49,28 @@ function ModalUpdateJam3ya({ jam3ya }) {
           />
           <br />
           image:
-          <input
+          <input className="form-control me-2"
             value={updateJam3ya.image}
             name="image"
             onChange={handleChange}
           />
           <br />
           amount:
-          <input
+          <input className="form-control me-2"
             value={updateJam3ya.amount}
             name="amount"
             onChange={handleChange}
           />
           <br />
           limit:
-          <input
+          <input className="form-control me-2"
             value={updateJam3ya.limit}
             name="limit"
             onChange={handleChange}
           />
           <br />
           startDate:
-          <DatePicker
+          <DatePicker className="form-control me-2"
             selected={updateJam3ya.startDate}
             onChange={(date) =>
               setUpdateJam3ya({ ...updateJam3ya, startDate: date })
@@ -77,13 +78,13 @@ function ModalUpdateJam3ya({ jam3ya }) {
           />
           <br />
           endDate:
-          <DatePicker
+          <DatePicker className="form-control me-2"
             selected={updateJam3ya.endDate}
             onChange={(date) =>
               setUpdateJam3ya({ ...updateJam3ya, endDate: date })
             }
           />
-          <button type="submit">Submit</button>
+          <button type="submit" className="btn btn-primary">Submit</button>
         </form>
       </Modal>
     </div>

@@ -35,24 +35,43 @@ function ModalCreateJam3ya() {
       </Button>
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header>
           <div>
-            <form onSubmit={handleSubmit}>
+            <form className="createJam" onSubmit={handleSubmit}>
+              <h3 className="cmj">Add a New Jam3ya</h3>
               <br />
               title:
-              <input type="text" name="title" onChange={handleChange} />
+              <input
+                className="form-control me-2"
+                type="text"
+                name="title"
+                onChange={handleChange}
+              />
               <br />
               image:
-              <input name="image" onChange={handleChange} />
+              <input
+                className="form-control me-2"
+                name="image"
+                onChange={handleChange}
+              />
               <br />
               amount:
-              <input name="amount" onChange={handleChange} />
+              <input
+                className="form-control me-2"
+                name="amount"
+                onChange={handleChange}
+              />
               <br />
               limit:
-              <input name="limit" onChange={handleChange} />
+              <input
+                className="form-control me-2"
+                name="limit"
+                onChange={handleChange}
+              />
               <br />
               startDate:
               <DatePicker
+                className="form-control me-2"
                 selected={createJam3ya.startDate}
                 onChange={(date) =>
                   setCreateJam3ya({ ...createJam3ya, startDate: date })
@@ -61,18 +80,16 @@ function ModalCreateJam3ya() {
               <br />
               endDate:
               <DatePicker
+                className="form-control me-2"
                 selected={createJam3ya.endDate}
                 onChange={(date) =>
                   setCreateJam3ya({ ...createJam3ya, endDate: date })
                 }
               />
-              <button type="submit">Submit</button>
+              <button type="submit" className="btn btn-primary">
+                Submit
+              </button>
             </form>
-
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={handleClose}></Button>
           </div>
         </Modal.Header>
       </Modal>
